@@ -1,8 +1,8 @@
-package com.sekretowicz.feignexample.service;
+package com.sekretowicz.alfabanktask.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sekretowicz.feignexample.client.GifClient;
+import com.sekretowicz.alfabanktask.client.GifClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.sekretowicz.feignexample.client;
+package com.sekretowicz.alfabanktask.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

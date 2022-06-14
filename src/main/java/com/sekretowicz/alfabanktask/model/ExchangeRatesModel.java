@@ -1,4 +1,4 @@
-package com.sekretowicz.feignexample.model;
+package com.sekretowicz.alfabanktask.model;
 
 import java.util.Map;
 /*
@@ -7,7 +7,7 @@ import java.util.Map;
 public class ExchangeRatesModel {
     String disclaimer, license, base;
     long timestamp;
-    Map<String, Long> rates;
+    Map<String, Double> rates;
 
     public ExchangeRatesModel() {}
 
@@ -43,11 +43,11 @@ public class ExchangeRatesModel {
         this.timestamp = timestamp;
     }
 
-    public Map<String, Long> getRates() {
+    public Map<String, Double> getRates() {
         return rates;
     }
 
-    public void setRates(Map<String, Long> rates) {
+    public void setRates(Map<String, Double> rates) {
         this.rates = rates;
     }
 }

@@ -1,6 +1,6 @@
-package com.sekretowicz.feignexample.client;
+package com.sekretowicz.alfabanktask.client;
 
-import com.sekretowicz.feignexample.model.ExchangeRatesModel;
+import com.sekretowicz.alfabanktask.model.ExchangeRatesModel;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

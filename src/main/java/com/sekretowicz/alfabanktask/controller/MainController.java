@@ -1,7 +1,7 @@
-package com.sekretowicz.feignexample.controller;
+package com.sekretowicz.alfabanktask.controller;
 
-import com.sekretowicz.feignexample.service.ExchangeRatesService;
-import com.sekretowicz.feignexample.service.GifService;
+import com.sekretowicz.alfabanktask.service.ExchangeRatesService;
+import com.sekretowicz.alfabanktask.service.GifService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,14 +21,17 @@ public class MainController {
 
     @GetMapping("/rates")
     public String compareRates(@RequestParam String currency, Model model) {
-        //Запрашиваем  курсы на сегодня и вчера
-        float todayRate = exchangeRatesService.getTodayRates(currency);
-        float yesterdayRate = exchangeRatesService.getYesterdayRates(currency);
+        //Сегодняшний и вчерашний курсы заданной валюты
+        long currentTime = System.currentTimeMillis();
+        double todayRate = exchangeRatesService.getRates(new Date(currentTime), currency);
+        double yesterdayRate = exchangeRatesService.getRates(new Date(currentTime-24*60*60*1000), currency);
 
         //Тэг, по которому будет искаться подходящая картинка. Если курс не изменился, будет картинка с тегом "nothing"
         String tag = "nothing";
 
-        if (todayRate>yesterdayRate) {
+        if (todayRate==0) {
+            tag = "error";
+        } else if (todayRate>yesterdayRate) {
             tag = "rich";
         } else if (todayRate<yesterdayRate) {
             tag = "broke";
